@@ -4,10 +4,10 @@
 <head>
 
   <meta charset="utf-8">
-  <title>Portfolio</title>
+  <title>Zacharia Houache</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
+  <meta content="zacharia houache" name="keywords">
+  <meta content="zacharia houache" name="description">
 
   <!-- Favicons -->
   <link href="img/favicon.jpg" rel="icon">
@@ -17,8 +17,9 @@
   <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <!-- Libraries CSS Files -->
-  <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="node_modules/animate.css/animate.min.css" rel="stylesheet">
   <link href="node_modules/ionicons/dist/css/ionicons.min.css" rel="stylesheet">
   <link href="node_modules/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
@@ -27,10 +28,10 @@
 
 
   <!-- Main Stylesheet File -->
-  <link href="style.csnns" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-</head>
 
+</head>
 <body id="page-top">
 
   <!--/ Nav Star /-->
@@ -68,7 +69,7 @@
       <div class="table-cell">
         <div class="container">
           <!--<p class="display-6 color-d">Hello, world!</p>-->
-          <h4 class="intro-title mb-4">Zacharia HOUACHE </h>
+          <h4 class="intro-title mb-4">Zacharia HOUACHE </h4>
           <p class="intro-subtitle"><span class="text-slider-items">Bienvenue sur mon Portfolio ,Je m'appelle Zacharia Houache,Etudiant en informatique</span><strong class="text-slider"></strong></p>
           <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
         </div>
@@ -87,7 +88,7 @@
                 <div class="row">
                   <div class="col-sm-6 col-md-5">
                     <div class="about-img">
-                     <img  class="img-fluid rounded b-shadow-a"src="img/avatar1.PNG" alt="">
+                     <img  class="img-fluid rounded b-shadow-a"src="img/avatar1.png" alt="">
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-7">
@@ -102,9 +103,8 @@
                 <div class="skill-mf">
                   </br>
                   <p class="title-s">Compétences IT</p>
-                  </br>
                   
-                
+                 
                   <span>Virtualisation (VMWare et VirtualBox)</span> <span class="pull-right">85%</span>
                   <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
@@ -140,6 +140,7 @@
                       aria-valuemax="100"></div>
                   </div>
                     <div>
+                        </br>
                       <button onclick="window.location.href='cv 20-11.pdf'" type="submit" name="submit" class="button button-a button-big button-rouded" style="margin-right: auto;margin-left: auto;">TELECHARGER MON CV</button>
                     </div>
 
@@ -195,10 +196,6 @@
 
  <!--/ Section Portfolio Star /-->
 
-
-
-
-
 <!--/ Section Portfolio End /-->
 
 
@@ -219,7 +216,7 @@
                     </h5>
                   </div>
                   <div>
-                      <form method="POST" class="contactForm">
+                      <form method="POST"  class="contactForm">
                       <div id="sendmessage">Votre message a était envoyer. Merci!</div>
                       <div id="errormessage"></div>
                       <div class="row">
@@ -255,6 +252,18 @@
                     </form>
                   </div>
                 </div>
+
+                					<?php
+
+					if (isset($_POST['submit']) && isset($_POST["name"])&& isset($_POST["email"]) && isset($_POST["message"]) && isset($_POST["subject"])) {
+						$to = "houachezacharia@gmail.com";
+						$subject = htmlspecialchars($_POST['subject']);
+						$message="<html><head></head><body>From: " . htmlspecialchars($_POST['email']) ."\nNom :\n" . htmlspecialchars($_POST['name']) .      "\n\nMessage :\n" .htmlspecialchars($_POST['message']) . "</body></html>";
+						$headers  = 'MIME-Version: 1.0' . "\r\n";
+						$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+						mail($to, $subject, $message, $headers);
+					}
+					?>
                 <div class="col-md-6">
                   <div class="title-box-2 pt-4 pt-md-0">
                     <h5 class="title-left">
@@ -305,7 +314,7 @@
   
   <!-- JavaScript Libraries -->
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="node_modules/jquery-migrate/dit/jquery-migrate.min.js"></script>
+  <script src="node_modules/jquery-migrate/dist/jquery-migrate.min.js"></script>
   <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="node_modules/easing/browser-easing.js"></script>
@@ -324,15 +333,3 @@
 
 </body>
 </html>
-
-<?php
-
-if (isset($_POST['submit'])) {
-    $to = "houachezacharia@gmail.com";
-    $subject = htmlspecialchars($_POST['subject']);
-    $message="<html><head></head><body>From: " . htmlspecialchars($_POST['email']) ."\nNom :\n" . htmlspecialchars($_POST['name']) .      "\n\nMessage :\n" .htmlspecialchars($_POST['message']) . "</body></html>";
-    $headers  = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
-    mail($to, $subject, $message, $headers);
-}
-?>
